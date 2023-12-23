@@ -2,4 +2,5 @@
 
 # Script to group visitors by IP and HTTP status code and display data
 
-awk '{print $1, $9}' apache-access.log | sort | uniq -c | sort -nr | awk '{print $1, $2, $3}'
+awk '{print $1, $9}' apache-access.log | sort | uniq -c | sort -nr | awk '{printf "%6s %15s %3s\n", $1, $2, $3}'
+
