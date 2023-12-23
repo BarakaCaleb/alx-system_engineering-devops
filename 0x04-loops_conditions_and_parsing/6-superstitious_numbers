@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#Script that displays 1 to 20 with special messages for certain iterations
+count=1
+while [ $count -le 20 ]; do
+	case $count in
+		4 | 9 | 17)
+			echo "$count"
+			echo "bad luck from $(case $count in
+						4) echo "China" ;;
+						9) echo "Japan" ;;
+						17) echo "Italy" ;;
+					esac)"
+			;;
+		*)
+			echo $count
+			;;
+	esac
+	((count++))
+done
