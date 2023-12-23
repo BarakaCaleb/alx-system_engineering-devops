@@ -8,4 +8,4 @@ while [ $count -le 10 ]; do
 		echo "Best School"
 	fi
 	((count++))
-
+done
