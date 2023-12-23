@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#script displays "Best School" 10 times but for 9th iteration displays "Best School" and the "Hi"
+count=1
+while [ $count -le 10 ]; do
+	if [ $count -eq 9 ]; then
+		echo -e "Best School\nHi"
+	else
+		echo "Best School"
+	fi
+	((count++))
+
