@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Script to tell the story of /etc/passwd using a while loop + IFS
+
+while IFS=: read -r username _ uid gid gecos home shell; do
+    echo "The user $username is part of the $gid gang, lives in $home and rides $shell. $uid's place is protected by the passcode x, more info about the user here: $gecos"
+done < /etc/passwd
+
