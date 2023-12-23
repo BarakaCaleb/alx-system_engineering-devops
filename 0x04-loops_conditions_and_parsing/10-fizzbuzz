@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
-
-# FizzBuzz for the first 100 numbers
-
+# A script that printsFizzBuzz for the first 100 numbers
 for ((i=1; i<=100; i++)); do
     if ((i % 3 == 0)) && ((i % 5 == 0)); then
         echo "FizzBuzz"
