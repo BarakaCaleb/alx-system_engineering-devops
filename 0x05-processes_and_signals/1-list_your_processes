@@ -1,7 +1,3 @@
 #!/bin/env bash
-# A script that displays a list of current running process
-echo "USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND"
-
-# Display processes using ps command with hierarchical format
-ps aux --forest | head -50
-
+# A script that displays a list of current running processes.
+ps auxf
