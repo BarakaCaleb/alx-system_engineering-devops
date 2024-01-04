@@ -33,7 +33,7 @@ transfer protocols.
     1. Internet
     2. WAN
     3. LAN
-  * What network do you use when you browse www.ALX.com from your
+  * What network do you use when you browse www.alxafrica.com from your
   smartphone (not connected to the Wifi)?
     1. Internet
     2. WAN
