@@ -1,6 +1,6 @@
 # Configuration management
 
-In this project, I started working with Puppet as a configuration management
+In this project, I started working with Puppet a configuration manager.
 tool. I practiced writing Puppet manifest files to create a file, install a
 package, and execute a command.
 
@@ -20,4 +20,4 @@ package, and execute a command.
 
 * **2. Execute a command**
   * [2-execute_a_command.pp](./2-execute_a_command.pp): Puppet manifest file
-  that kills the process `killmenow`.
+  that kills the  process `killmenow`.
