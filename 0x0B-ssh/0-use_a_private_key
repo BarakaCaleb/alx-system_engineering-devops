@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-# Connects to my Alx server 35.153.17.151
-ssh -i ~/.ssh/school ubuntu@35.153.17.151
+# Connects to my Alx server 100.25.148.159
+ssh -i ~/.ssh/school ubuntu@100.25.148.159
 
