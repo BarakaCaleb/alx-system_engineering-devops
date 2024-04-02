@@ -18,4 +18,5 @@ backend nodes
 ' >> /etc/haproxy/haproxy.cfg
 
 # Restart HAproxy service
+
 sudo service haproxy restart
