@@ -1,25 +1,19 @@
-get_info() {
-    local domain="$1"
-    local subdomain="$2"
+#!/usr/bin/env bash
+# Usage: ./1-world_wide_web <domain> <subdomain>
+# Display information about subdomains.
 
-    result=$(dig "$subdomain.$domain" | grep -A1 'ANSWER SECTION:')
-
-    local record_type
-    record_type=$(echo "$result" | awk '/ANSWER SECTION:/ { getline; print $4 }')
-
-    local destination
-    destination=$(echo "$result" | awk '/ANSWER SECTION:/ { getline; print $5 }')
-
-    echo "The subdomain $subdomain is a $record_type record and points to $destination"
+domain_information () {
+    line=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | tr '\n' ' ')
+    echo "$2 $line" | awk '{print "The subdomain " $1 " is a " $2 " record and points to " $3}'
 }
 
-if [ "$#" == 1 ];
+if [ "$#" == 1 ]
 then
-    get_info "$1" "www"
-    get_info "$1" "lb-01"
-    get_info "$1" "web-01"
-    get_info "$1" "web-02"
-elif [ "$#" == 2 ];
+  domain_information "$1" "www"
+  domain_information "$1" "lb-01"
+  domain_information "$1" "web-01"
+  domain_information "$1" "web-02"
+elif [ "$#" == 2 ]
 then
-    get_info "$1" "$2"
+  domain_information "$1" "$2"
 fi
