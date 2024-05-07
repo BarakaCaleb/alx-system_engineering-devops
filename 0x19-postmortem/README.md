@@ -23,28 +23,27 @@ information.
 
 4. Repeated step 3, except on the PID of the `www-data` process. Kept expectations lower this
 time... but was rewarded! `strace` revelead an `-1 ENOENT (No such file or directory)` error
-occurring upon an attempt to access the file `/var/www/html/wp-includes/class-wp-locale.ppy`.
+occurring upon an attempt to access the file `/var/www/CodeNexus/code_nexus/models.ppy`.
 
 5. Looked through files in the `/var/www/html/` directory one-by-one, using Vim pattern
 matching to try and locate the erroneous `.ppy` file extension. Located it in the
-`urls.py` file. (Line 137, `path( ABSPATH . WPINC . '/class-wp-locale.py' );`).
+`urls.py` file. (Line 137, `path('create-room/', views.createRoom, name="create-room");`).
 
-6. Removed the trailing `p` from the line.
+6. Removed the trailing `p` from the python file name extension.
 
 7. Tested another `curl` on the server. 200 A-ok!
 
-8. Wrote a Puppet manifest to automate fixing of the error.
+8. Wrote a Puppet manifest to automate fixing of the error on the file name.
 
 ## Summation
 
-In short, a typo. Gotta love'em. In full, the WordPress app was encountering a critical
-error in `wp-settings.php` when tyring to load the file `class-wp-locale.phpp`. The correct
-file name, located in the `wp-content` directory of the application folder, was
-`class-wp-locale.php`.
+In short, a typo. Gotta love'em. In full, the Webapp was encountering a critical
+error in `code_nexus` when tyring to load the file `urls.ppy`. The correct
+file name, should be `urls.py` in the `code_nexus` directory of the application folder.
 
-Patch involved a simple fix on the typo, removing the trailing `p`.
+Patch involved a simple fix on the typo, removing the trailing `p` from the file name extension.
 
-## Prevention
+## Prevention-Measures
 
 The outage was an application error rather than a web server error,
 To prevent such outages in the future moving forward, the following should be taken seriously.
@@ -56,4 +55,6 @@ The error could have been addressed earlier if the app had been tested.
 [UptimeRobot](./https://uptimerobot.com/) to alert instantly upon outage of the website.
 
 Also not forgetting in response to this error i crafted a puppet manifest to solve the small bug
+
+
 
